@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartGrocery | Online Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Header & Navbar -->
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🛒✨</span> Smart<span>Grocery</span>
+            </div>
+            
+            <div id="userGreeting" class="user-greeting"></div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search your items...">
+            </div>
+
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#vegetables">Vegetables</a></li>
+                    <li><a href="#fruits">Fruits</a></li>
+                    <li><a href="#dairy">Dairy</a></li>
+                    <li><a href="#staples">Staples</a></li>
+                    <li><a href="#snacks">Snacks</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h2 class="main-title">All Grocery Items</h2>
+    
+    <!-- AI Recommender Section -->
+    <section class="ai-recommender-box container">
+        <div class="ai-header">
+            <h3>🤖 AI Health Recommender</h3>
+            <p>Select your goal and get personalized grocery suggestions!</p>
+        </div>
+        <div class="ai-options">
+            <button class="ai-btn loss" onclick="openAiModal('Weight Loss')">Weight Loss Plan</button>
+            <button class="ai-btn gain" onclick="openAiModal('Weight Gain')">Weight Gain Plan</button>
+        </div>
+    </section>
+
+    <!-- Custom AI Modal -->
+    <div id="aiModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Analyze Goal</h2>
+            <div class="input-group">
+                <label>Height (in cm):</label>
+                <input type="number" id="userHeight" placeholder="e.g. 170">
+            </div>
+            <div class="input-group">
+                <label>Weight (in kg):</label>
+                <input type="number" id="userWeight" placeholder="e.g. 65">
+            </div>
+            <button class="calculate-btn" onclick="getAiRecommendation()">Get AI Suggestion</button>
+            <div id="aiResult" class="ai-result-text"></div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Section: Vegetables -->
+        <section id="vegetables" class="category-section">
+            <h2 class="section-heading">Fresh Vegetables</h2>
+            <div class="product-grid">
+                <div class="item-card">
+                    <img src="Images/Potato.jpg" alt="Potato">
+                    <div class="details">
+                        <h3>Potato</h3>
+                        <p>₹30</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Tomato.jpg" alt="Tomato">
+                    <div class="details">
+                        <h3>Tomato</h3>
+                        <p>₹40</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Onions.jpg" alt="Onions">
+                    <div class="details">
+                        <h3>Onions</h3>
+                        <p>₹40</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Capsium.jpg" alt="Capsium">
+                    <div class="details">
+                        <h3>Capsium</h3>
+                        <p>₹50</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Yellow Carrot.jpg" alt="Yellow Carrot">
+                    <div class="details">
+                        <h3>Yellow Carrot</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Peas.jpg" alt="Peas">
+                    <div class="details">
+                        <h3>Peas</h3>
+                        <p>₹30</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Lady Finger.jpg" alt="Lady Finger">
+                    <div class="details">
+                        <h3>Lady Finger</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Fresh Fruits -->
+        <section id="fruits" class="category-section">
+            <h2 class="section-heading">Fresh Fruits</h2>
+            <div class="product-grid">
+                <div class="item-card">
+                    <img src="Images/Apple.jpg" alt="Apple">
+                    <div class="details">
+                        <h3>Apple</h3>
+                        <p>₹100</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Banana.jpg" alt="Banana">
+                    <div class="details">
+                        <h3>Banana</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Mango.jpg" alt="Mango">
+                    <div class="details">
+                        <h3>Mango</h3>
+                        <p>₹80</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Grapes.jpg" alt="Grapes">
+                    <div class="details">
+                        <h3>Grapes</h3>
+                        <p>₹80</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Orange.jpg" alt="Orange">
+                    <div class="details">
+                        <h3>Orange</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Papaya.jpg" alt="Papaya">
+                    <div class="details">
+                        <h3>Papaya</h3>
+                        <p>₹50</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Pomegranate.jpg" alt="Pomegranate">
+                    <div class="details">
+                        <h3>Pomegranate</h3>
+                        <p>₹120</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/watermelon.jpg" alt="Watermelon">
+                    <div class="details">
+                        <h3>Watermelon</h3>
+                        <p>₹80</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Dairy & Bakery -->
+        <section id="dairy" class="category-section">
+            <h2 class="section-heading">Dairy & Bakery</h2>
+            <div class="product-grid">
+                <div class="item-card">
+                    <img src="Images/Milk.jpg" alt="Milk">
+                    <div class="details">
+                        <h3>Milk</h3>
+                        <p>₹70</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Paneer.jpg" alt="Paneer">
+                    <div class="details">
+                        <h3>Paneer</h3>
+                        <p>₹220</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Curd.jpg" alt="Curd">
+                    <div class="details">
+                        <h3>Curd</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Amul Butter.jpg" alt="Amul Butter">
+                    <div class="details">
+                        <h3>Amul Butter</h3>
+                        <p>₹120</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Cheese Slices.jpg" alt="Cheese Slices">
+                    <div class="details">
+                        <h3>Cheese slices</h3>
+                        <p>₹80</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Brown Bread.jpg" alt="Brown Bread">
+                    <div class="details">
+                        <h3>Brown Bread</h3>
+                        <p>₹40</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Eggs.jpg" alt="Eggs">
+                    <div class="details">
+                        <h3>Eggs</h3>
+                        <p>₹200</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Fresh Cream.jpg" alt="Fresh Cream">
+                    <div class="details">
+                        <h3>Fresh Cream</h3>
+                        <p>₹100</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Atta, Dal & Rice -->
+        <section id="staples" class="category-section">
+            <h2 class="section-heading">Atta, Dal & Rice</h2>
+            <div class="product-grid">
+                <div class="item-card">
+                    <img src="Images/Chakki Atta.jpg" alt="Chakki Atta">
+                    <div class="details">
+                        <h3>Chakki Atta</h3>
+                        <p>₹250</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/White Basmati Rice.jpg" alt="Basmati Rice">
+                    <div class="details">
+                        <h3>Basmati Rice</h3>
+                        <p>₹140</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Arhar Dal.jpg" alt="Arhar Dal">
+                    <div class="details">
+                        <h3>Arhar Dal</h3>
+                        <p>₹120</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Moong Dal.jpg" alt="Moong Dal">
+                    <div class="details">
+                        <h3>Moong Dal</h3>
+                        <p>₹130</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Kale Chana.jpg" alt="kale Chana">
+                    <div class="details">
+                        <h3>Kala Chana</h3>
+                        <p>₹140</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Sugar.jpg" alt="Sugar">
+                    <div class="details">
+                        <h3>Sugar</h3>
+                        <p>₹100</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Salt.jpg" alt="Salt">
+                    <div class="details">
+                        <h3>Salt</h3>
+                        <p>₹30</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Refined Oil.jpg" alt="Refined Oil">
+                    <div class="details">
+                        <h3>Refined Oil</h3>
+                        <p>₹160</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Snacks & Beverages -->
+        <section id="snacks" class="category-section">
+            <h2 class="section-heading">Snacks & Beverages</h2>
+            <div class="product-grid">
+                <div class="item-card">
+                    <img src="Images/Maggi.jpg" alt="Maggi">
+                    <div class="details">
+                        <h3>Maggi</h3>
+                        <p>₹20</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Tata Tea.jpg" alt="Tata Tea">
+                    <div class="details">
+                        <h3>Tata Tea</h3>
+                        <p>₹60</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Nescafe Coffee.jpg" alt="Coffee ">
+                    <div class="details">
+                        <h3>Coffee</h3>
+                        <p>₹250</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Potato Chips.jpg" alt="Potato Chips">
+                    <div class="details">
+                        <h3>Potato Chips</h3>
+                        <p>₹20</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Cold Drink.jpg" alt="Cold Drink">
+                    <div class="details">
+                        <h3>Cold Drink</h3>
+                        <p>₹50</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Biscuits.jpg" alt="Biscuits">
+                    <div class="details">
+                        <h3>Biscuits</h3>
+                        <p>₹130</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Chocolates.jpg" alt="Chocolates">
+                    <div class="details">
+                        <h3>Chocolates</h3>
+                        <p>₹200</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <img src="Images/Tomato Ketchup.jpg" alt="Tomato Ketchup">
+                    <div class="details">
+                        <h3>Tomato Ketchup</h3>
+                        <p>₹140</p>
+                        <p class="expiry-alert">🛡️ Fresh for next 3 days</p>
+                        <button class="buy-btn">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating Cart Button -->
+    <div class="cart-icon-fixed" onclick="toggleCart()">
+        🛒 <span id="cart-count">0</span> Items
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Basket</h2>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cartItems" class="cart-items-list">
+            <p style="text-align:center; padding:20px;">Basket is empty!</p>
+        </div>
+        <div class="cart-footer">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+            <button class="checkout-btn" onclick="openCheckoutModal()">Checkout Now</button>
+        </div>
+        <div id="budgetAlert" class="budget-alert-box" style="display: none;">
+            <p id="budgetMessage"></p>
+        </div>
+    </div>
+
+    <!-- Checkout / Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content payment-box">
+            <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+            <h2>Select Payment Method</h2>
+            <div class="payment-options">
+                <label><input type="radio" name="payMethod" value="UPI" checked> UPI / QR Code (GPay / PhonePe)</label>
+                <label><input type="radio" name="payMethod" value="COD"> Cash on Delivery (COD)</label>
+            </div>
+            <button class="calculate-btn" onclick="confirmPaymentAndGenerateBill()">Confirm & Generate Bill</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="toast">Item added to cart!</div>
+
+    <!-- AI Chatbot Container -->
+    <div class="chatbot-container" id="chatbot">
+        <div class="chat-header" onclick="toggleChatbot()">
+            <span>💬 AI Assistant</span>
+            <span id="chatToggleIcon" style="font-size: 14px;">▼</span>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="bot-msg">Hello Kishan! How can I help you today with your grocery shopping or health plans?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything..." onkeypress="handleChatInput(event)">
+        </div>
+    </div>
+
+    <!-- Professional Footer -->
+    <footer class="main-footer-section">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>🛒 SmartGrocery</h3>
+                <p>Your trusted online store for fresh vegetables, fruits, dairy, and daily essentials delivered instantly.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Connect With Me</h3>
+                <div class="social-links">
+                    <a href="https://github.com/kishan814" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kishanarya/" target="_blank">LinkedIn</a>
+                    <a href="aryakishan74@gmail.com" target="_blank">Gmail</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Give Your Advice / Feedback</h3>
+                <div class="feedback-box">
+                    <input type="text" id="userFeedback" placeholder="Write your advice here...">
+                    <button onclick="submitFeedback()">Send Feedback</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SmartGrocery. Developed with ❤️ by Kishan Arya.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
